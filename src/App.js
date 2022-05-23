@@ -7,17 +7,21 @@ function App() {
       <header className='header'>
         <div className='container'>
           <div className='header__body'>
-            <div className='header__logo'>
-              <img src={logo} alt='Логотип компании' />
-              
-              <div className='header__buttons'>
-                <button className='btn__white'>Версия для слабовидящих</button>
-                <button className='btn__white'>Мой профиль</button>
-              </div>
+            <a href="/" className='header__logo'><img src={logo} alt='Логотип компании' /></a>
+
+            <div className='header__buttons'>
+              <button className='btn__white'>Версия для слабовидящих</button>
+              <button className='btn__white'>Мой профиль</button>
             </div>
           </div>
         </div>
       </header>
+
+      <main className='main'>
+        
+      </main>
+
+      <footer></footer>
     </div>
   );
 }

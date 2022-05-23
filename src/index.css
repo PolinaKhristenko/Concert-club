@@ -1,5 +1,13 @@
 /* General */ 
 
+@font-face {
+  font-family: "Proxima Nova";
+  /* src: local('Gilroy Light'), local('Gilroy-Light'), url('Gilroylight.woff2') format('woff2'), url('Gilroylight.woff') format('woff'), url('Gilroylight.ttf') format('truetype'); */
+  src: url('./fonts/proxima-nova.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
 
 html, body {
   height: 100%;
@@ -51,4 +59,49 @@ body {
 }
 
 
+.container {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
 
+
+/* Media */
+
+
+
+@media screen and (max-width: 1024px) { 
+  .container {
+      max-width: 992px;
+  }
+}
+
+@media screen and (max-width: 992px) { 
+  .container {
+      max-width: 768px;
+  }
+
+  html {
+    font-size: 8px;
+  }
+}
+
+@media screen and (max-width: 768px) { 
+  .container {
+      max-width: 576px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+      max-width: 100%;
+      padding: 0 20px;
+  }
+
+  .header__body {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+}
