@@ -1,28 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Header } from './components/Header';
+import { UserList } from './components/UserList';
+import { UserProfile } from './components/UserProfile';
+
 
 function App() {
   return (
-    <div className='App'>
-      <header className='header'>
-        <div className='container'>
-          <div className='header__body'>
-            <a href="/" className='header__logo'><img src={logo} alt='Логотип компании' /></a>
+      <div className='App'>
 
-            <div className='header__buttons'>
-              <button className='btn__white'>Версия для слабовидящих</button>
-              <button className='btn__white'>Мой профиль</button>
-            </div>
-          </div>
-        </div>
-      </header>
+        <Header/>
 
-      <main className='main'>
-        
-      </main>
+        <main className='main'>
+          <Routes>
+            <Route className='user__list' path='/' element={ <UserList/> }></Route>
+            <Route className='user__visit' path=':id' element={ <UserProfile/> }></Route>
+          </Routes>
+        </main>
 
-      <footer></footer>
-    </div>
+        <footer></footer>
+
+      </div>
   );
 }
 
