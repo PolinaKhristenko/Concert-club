@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../App.css';
-import logo from '../logo.svg';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 import { UserProfile } from './UserProfile';
 
 import { useGetUsersQuery } from '../services/userApi';
 
 export const UserList = () => {
     const { data, isFetching } = useGetUsersQuery();
+    let fullNameData = data;
+    const [users, setUsers] = useState(fullNameData);
+    if (isFetching) return 'Loading...';
 
-    
     // console.log(data);
 
     return (
@@ -17,12 +18,15 @@ export const UserList = () => {
             <div className='container'>
                 <h1>Пользователи</h1>
                 <div className='users__body'>
-                    <div className='user__card'>
-                        <div className='user__info'>
-                            <p className='user__name'></p>
-                            <p className='user__surname'></p>
-                        </div>
-                    </div>
+                    {users.map((user) => (
+                        <Link to={`/${user.id}`}>
+                            <div className='user__card'>
+                                <div className='user__info'>
+                                    <p className='user__full'>{user.name}</p>
+                                </div>
+                            </div>
+                        </Link>
+                    ))}
                 </div>
             </div>
         </section>

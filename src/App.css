@@ -63,5 +63,6 @@
             flex: 1 1 auto;
   }
 
-  
-  
+  .user__surname {
+    color: black;
+  }

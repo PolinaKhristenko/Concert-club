@@ -3,8 +3,16 @@ import '../App.css';
 import logo from '../logo.svg';
 import { BrowserRouter, Route } from 'react-router-dom';
 
+import { useGetUsersQuery } from '../services/userApi';
+
 export const UserProfile = () => {
+    const { data, isFetching } = useGetUsersQuery();
+    let userNameData = data?.[0].name;
+    let userName;
+
+    if (isFetching) return 'Loading...';
+
     return (
-        <div>profile</div>
+        <p className='user__name'>{userName}</p> 
     )
 }
