@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../App.css';
 import {Link } from 'react-router-dom';
 import { UserProfile } from './UserProfile';
@@ -6,29 +6,31 @@ import { UserProfile } from './UserProfile';
 import { useGetUsersQuery } from '../services/userApi';
 
 export const UserList = () => {
-    const { data, isFetching } = useGetUsersQuery();
+    const { data } = useGetUsersQuery();
     let fullNameData = data;
-    const [users, setUsers] = useState(fullNameData);
-    if (isFetching) return 'Loading...';
+    const [users, setUsers] = useState([]);
+    useEffect(() => { setUsers(fullNameData); }, [setUsers, fullNameData] ); 
+    // Пришлось добавить из-за асинхронности useState
 
-    // console.log(data);
-
-    return (
-        <section className='users'>
-            <div className='container'>
-                <h1>Пользователи</h1>
-                <div className='users__body'>
-                    {users.map((user) => (
-                        <Link to={`/${user.id}`}>
-                            <div className='user__card'>
-                                <div className='user__info'>
-                                    <p className='user__full'>{user.name}</p>
+    if (users) {
+        return (
+            <section className='users'>
+                <div className='container'>
+                    <h1 className='title'>Пользователи</h1>
+                    <div className='users__body'>
+                        {users?.map((user) => (
+                            <Link key={user.id} to={`/${user.id}`}>
+                                <div className='user__card'>
+                                    <div className='user__info'>
+                                        <p key={user.name} className='user__full'>{user.name}</p>
+                                        <button className="btn__black" type='button'>Смотреть Профиль</button>
+                                    </div>
                                 </div>
-                            </div>
-                        </Link>
-                    ))}
+                            </Link>
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </section>
-    )
-}
+            </section>
+        )
+    }
+};

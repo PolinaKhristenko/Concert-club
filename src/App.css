@@ -33,6 +33,9 @@
     display: flex;
     gap: 12px;
   }
+
+
+  /* Reuse */
   
   .btn__white {
     padding: 10px 20px;
@@ -44,10 +47,31 @@
     border-radius: 0%;
     white-space: nowrap;
   }
+
+  .btn__black {
+    padding: 10px 20px;
+    background: var(--main-black);
+    color: #FFFFFF;
+    font-family: "Proxima Nova";
+    font-weight: 600;
+    font-size: 1.4rem;
+    border-radius: 0%;
+    white-space: nowrap;
+  }
   
   .btn__white:hover,
-  .btn__white:active {
+  .btn__white:active,
+  .btn__black:hover,
+  .btn__black:active{
     border-radius: 10px;
+  }
+
+  .title {
+    font-weight: 500;
+    font-size: 3.5rem;
+    line-height: 40px;
+    color: #000000;
+    margin: 15px 0;
   }
   
   
@@ -63,6 +87,32 @@
             flex: 1 1 auto;
   }
 
-  .user__surname {
+  .user__full {
     color: black;
+    margin-bottom: 56px;
+    font-weight: 700;
+    font-size: 1.7rem;
+    line-height: 23px;
+    text-transform: capitalize;
+    color: #000000;
+  }
+  
+  .users__body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 13px;
+  }
+
+  .user__card {
+    padding: 15px;
+    border: 1px solid #DADADA;
+    transition: border 0.3s;
+    width: 239px;
+    height: 143px;
+  }
+
+  .user__card:hover,
+  .user__card:active {
+    border: 1px solid #0D1E4B;
   }
