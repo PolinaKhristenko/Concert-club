@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { UserList } from './components/UserList';
 import { UserProfile } from './components/UserProfile';
+import {AllPosts} from './components/AllPosts';
 
 
 function App() {
@@ -13,8 +14,10 @@ function App() {
 
         <main className='main'>
           <Routes>
-            <Route className='user__list' path='/' element={ <UserList/> }></Route>
-            <Route className='user__visit' path=':id' element={ <UserProfile/> }></Route>
+            <Route exact path='/' element={ <UserList/> }></Route>
+            <Route path='/:userId' element={ <UserProfile/> }></Route>
+            <Route path='/posts' element={ <AllPosts/> }></Route>
+            {/* <Route className='user__visit' path=':userId' element={ <UserProfile/> }></Route> */}
           </Routes>
         </main>
 

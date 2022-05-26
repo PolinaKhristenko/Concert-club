@@ -13,11 +13,27 @@ export const userApi = createApi({
     }),
     endpoints: (builder) => ({
         getUsers: builder.query({
-            query: () => createRequest('/users'),
+            query: () => createRequest(`/users`),
+        }),
+        getUserId: builder.query({
+            query: (userId) => createRequest(`/users/${userId}`),
+        }),
+        getPosts: builder.query({
+            query: (userId) => createRequest(`/posts?userId=${userId}`),
+        }),
+        // getPostDetails: builder.query({
+        //     query: (userId) => createRequest(`/posts?userId=${userId}`),
+        // ?limit=${postLimit}
+        // }),
+        getComments: builder.query({
+            query: (userId) => createRequest(`/comments/${userId}`),
         })
     })
 });
 
 export const {
     useGetUsersQuery,
+    useGetUserIdQuery,
+    useGetPostsQuery,
+    useGetCommentsQuery
 } = userApi;

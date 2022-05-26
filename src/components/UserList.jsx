@@ -9,10 +9,9 @@ export const UserList = () => {
     const { data } = useGetUsersQuery();
     let fullNameData = data;
     const [users, setUsers] = useState([]);
-    useEffect(() => { setUsers(fullNameData); }, [setUsers, fullNameData] ); 
+    useEffect(() => { setUsers(fullNameData) }, [setUsers, fullNameData] ); 
     // Пришлось добавить из-за асинхронности useState
 
-    if (users) {
         return (
             <section className='users'>
                 <div className='container'>
@@ -32,5 +31,4 @@ export const UserList = () => {
                 </div>
             </section>
         )
-    }
 };
