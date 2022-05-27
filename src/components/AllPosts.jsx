@@ -25,11 +25,11 @@ export const AllPosts = () => {
                     <div className='container'>
                         <h2 className='title'>Все посты</h2>
                         <div className='posts__body'>
-                            {postInfos?.map((post) => (
-                                <Link key={'post.id'} to={`/${post.id}`}>
+                            {postInfos?.map((post, index) => (
+                                <Link key={index} to={`/${post.id}`}>
                                     <div className='post__card'>
-                                        <p key={'post.name'} className='post__title'>{post.title}</p>
-                                        <p key={'post.body'} className='post__body'>{post.body}</p>
+                                        <p key={post.name} className='post__title'>{post.title}</p>
+                                        <p key={post.body} className='post__body'>{post.body}</p>
                                     </div>
                                 </Link>
                             ))}

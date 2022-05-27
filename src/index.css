@@ -2,7 +2,6 @@
 
 @font-face {
   font-family: "Proxima Nova";
-  /* src: local('Gilroy Light'), local('Gilroy-Light'), url('Gilroylight.woff2') format('woff2'), url('Gilroylight.woff') format('woff'), url('Gilroylight.ttf') format('truetype'); */
   src: url('./fonts/proxima-nova.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;

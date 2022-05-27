@@ -45,7 +45,7 @@ export const UserProfile = () => {
                                     </div>
                                 </Link>
                             ))}
-                            <Link to='/posts'>
+                            <Link key='posts' to={`/${userId}/posts`}>
                                 <button className="btn__black" type='button'>Показать все посты</button>
                             </Link>
                         </div>
