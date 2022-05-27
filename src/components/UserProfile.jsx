@@ -16,7 +16,6 @@ export const UserProfile = () => {
     const userDetails = data;
 
     // Посты
-    
     const { currentData } = useGetPostsQuery(userId);
     let postInfos = currentData;
 
@@ -38,7 +37,7 @@ export const UserProfile = () => {
                         <h2 className='title'>Посты</h2>
                         <div className='posts__body'>
                             {postInfos?.slice(0, 3).map((post) => (
-                                <Link key={post.id} to={`/${post.id}`}>
+                                <Link key={post.id} to={`posts/${post.id}`}>
                                     <div className='post__card'>
                                         <p key={post.name} className='post__title'>{post.title}</p>
                                         <p key={post.body} className='post__body'>{post.body}</p>

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../App.css';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 
-import { useGetUserIdQuery, useGetPostsQuery, useGetCommentsQuery } from '../services/userApi';
+import { useGetUserIdQuery, useGetPostsQuery } from '../services/userApi';
 
 export const AllPosts = () => {
     
@@ -12,8 +12,8 @@ export const AllPosts = () => {
     const { data } = useGetUserIdQuery(userId);
     const userDetails = data;
 
+
     // Посты
-    
     const { currentData } = useGetPostsQuery(userId);
     let postInfos = currentData;
 
@@ -26,7 +26,7 @@ export const AllPosts = () => {
                         <h2 className='title'>Все посты</h2>
                         <div className='posts__body'>
                             {postInfos?.map((post, index) => (
-                                <Link key={index} to={`/${post.id}`}>
+                                <Link key={index} to={`${post.id}`}>
                                     <div className='post__card'>
                                         <p key={post.name} className='post__title'>{post.title}</p>
                                         <p key={post.body} className='post__body'>{post.body}</p>

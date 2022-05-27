@@ -21,13 +21,15 @@ export const userApi = createApi({
         getPosts: builder.query({
             query: (userId) => createRequest(`/posts?userId=${userId}`),
         }),
-        // getPostDetails: builder.query({
-        //     query: (userId) => createRequest(`/posts?userId=${userId}`),
-        // ?limit=${postLimit}
-        // }),
+        getPost: builder.query({
+            query: (postId) => createRequest(`/posts?id=${postId}`),
+        }),
         getComments: builder.query({
-            query: (userId) => createRequest(`/comments/${userId}`),
-        })
+            query: (postId) => createRequest(`/comments?postId=${postId}`),
+        }),
+        postComments: builder.query({
+            query: (postId) => createRequest(`/comments?postId=${postId}`),
+        }),
     })
 });
 
@@ -35,5 +37,7 @@ export const {
     useGetUsersQuery,
     useGetUserIdQuery,
     useGetPostsQuery,
-    useGetCommentsQuery
+    useGetCommentsQuery,
+    useGetPostQuery,
+    usePostCommentsQuery
 } = userApi;

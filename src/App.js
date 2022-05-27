@@ -18,7 +18,7 @@ function App() {
             <Route exact path='/' element={ <UserList/> }></Route>
             <Route path='/:userId' element={ <UserProfile/> }></Route>
             <Route path='/:userId/posts' element={ <AllPosts/> }></Route>
-            <Route path='/:userId/posts/post' element={ <Post/> }></Route>
+            <Route path='/:userId/posts/:postId' element={ <Post/> }></Route>
           </Routes>
         </main>
 
