@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
-import { AllPosts } from '../components/AllPosts';
-import { Post } from '../components/Post';
 
 import { useGetUserIdQuery, useGetPostsQuery } from '../services/userApi';
 
@@ -20,7 +18,8 @@ export const UserProfile = () => {
     let postInfos = currentData;
 
 
-    if (userDetails && postInfos) {
+    // Страница пользоваталя. Экран 2
+
         return (
             <section className='profile'>
                 <div className='profile__body'>
@@ -51,8 +50,5 @@ export const UserProfile = () => {
                     </div>
                 </div>
             </section>
-        )
-
-    }
-    
+        ) 
 }

@@ -3,22 +3,16 @@ import '../App.css';
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 
-import { useGetUserIdQuery, useGetPostsQuery } from '../services/userApi';
+import { useGetPostsQuery } from '../services/userApi';
 
 export const AllPosts = () => {
     
-    // Информация о пользователе
     const { userId } = useParams();
-    const { data } = useGetUserIdQuery(userId);
-    const userDetails = data;
-
-
-    // Посты
     const { currentData } = useGetPostsQuery(userId);
     let postInfos = currentData;
 
+    // Страница со всеми постами. Экран 3
 
-    if (userDetails && postInfos) {
         return (
             <section className='profile'>
                 <div className='profile__body'>
@@ -38,7 +32,5 @@ export const AllPosts = () => {
                 </div>
             </section>
         )
-
-    }
     
 }

@@ -12,6 +12,9 @@ export const UserList = () => {
     useEffect(() => { setUsers(fullNameData) }, [setUsers, fullNameData] ); 
     // Пришлось добавить из-за асинхронности useState
 
+
+    // Список пользоваталей. Экран 1
+
         return (
             <section className='users'>
                 <div className='container'>

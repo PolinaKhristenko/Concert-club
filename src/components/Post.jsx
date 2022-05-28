@@ -1,46 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../App.css';
 import { useParams } from "react-router-dom";
 
-import { useGetUserIdQuery, useGetCommentsQuery, useGetPostQuery, usePostCommentsQuery } from '../services/userApi';
+import { useGetCommentsQuery, useGetPostQuery, usePostCommentsQuery } from '../services/userApi';
 
 export const Post = () => {
     const params = useParams();
     const postId = params.postId;
-    const userId = params.userId;
-
-    // Информация о пользователе
-    const { data } = useGetUserIdQuery(userId);
-    const userDetails = data;
     
     // Посты
     const { currentData } = useGetPostQuery(postId);
     let postInfos = currentData;
 
-    console.log(postInfos)
-
     // Комментарии
-    const { commentData } = useGetCommentsQuery(postId);
-    let comments = commentData;
+    const { data } = useGetCommentsQuery(postId);
+    let comments = data;
 
+    // Страница с деталями поста и комментариями. Экран 4
 
-
-    // if (userDetails && postInfos && commentData) {
         return (
             <section className='post'>
                 <div className='container'>
-                    <h1>Пост</h1>
-                    {postInfos?.map((post, index) => (
-                        <div key={index} className='post__container'>
-                             <p className='post__title'>{post.title}</p>
-                             <p className='post__body'>{post.body}</p>
+                    <div className='post__infos'>
+                        {postInfos?.map((post, index) => (
+                            <div key={index} className='post__container'>
+                                <h1 className='post__title'>{post.title}</h1>
+                                <p className='post__txt'>{post.body}</p>
+                            </div>
+                        ))}
+                        <div className='comments'>
+                            <h3 className='comments__title'>Комментарии:</h3>
+                            {comments?.map((comment, index) => (
+                                <div key={index} className='comment__card'>
+                                    <div className='comment__user'>
+                                        <p className='comment__name'>Имя: {comment.name}</p>
+                                        <p className='comment__email'>Почта: {comment.email}</p>
+                                    </div>
+                                    <p className='comment__body'>{comment.body}</p>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
                 </div>
             </section>
         )
-    // }
-
-    console.log(postId,userId)
 }
 

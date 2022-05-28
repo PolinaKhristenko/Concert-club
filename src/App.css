@@ -17,6 +17,7 @@
   .header {
     padding: 15px 0;
     background-color: var(--main-black);
+    margin-bottom: 36px;
   }
   
   .header__body {
@@ -92,7 +93,6 @@
   }
 
   .user__full {
-    color: black;
     margin-bottom: 56px;
     font-weight: 700;
     font-size: 1.7rem;
@@ -171,7 +171,20 @@
     color: #000000;
  }
 
- .post__title {
+
+
+
+
+ /* Post */
+
+ .post__infos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+ }
+
+ .post__title,
+ .comments__title {
     font-weight: 700;
     font-size: 1.7rem;
     text-transform: capitalize;
@@ -212,3 +225,54 @@
     gap: 19.24px;
     padding: 16px 0 33px 0;
  }
+
+ .post {
+    display: flex;
+    flex-direction: column;
+ }
+
+ .post__container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+ }
+
+ .post__txt {
+  color: var(--main-black);
+  font-size: 1.6rem;
+ }
+
+ .comments {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+ }
+
+ .comment__card {
+  border: 1px solid #0D1E4B;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+ }
+
+ .comment__user {
+
+ }
+
+ .comment__name,
+ .comment__email {
+  color: var(--main-gray);
+  font-weight: 500;
+  font-size: 1.4rem;
+ }
+
+ .comment__body {
+  color: var(--main-black);
+  font-size: 1.6rem;
+ }
+
+
+footer {
+  margin-top: 40px;
+}
