@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
@@ -10,7 +10,7 @@ export const UserProfile = () => {
     
     // Информация о пользователе
     const { userId } = useParams();
-    const { data } = useGetUserIdQuery(userId);
+    const { data, isFetching } = useGetUserIdQuery(userId);
     const userDetails = data;
 
     // Посты
@@ -18,8 +18,10 @@ export const UserProfile = () => {
     let postInfos = currentData;
 
 
-    // Страница пользоваталя. Экран 2
+    if (isFetching) return <div className='container'>Идёт загрузка...</div>
 
+    // Страница пользоваталя. Экран 2
+    if (userDetails && postInfos) {
         return (
             <section className='profile'>
                 <div className='profile__body'>
@@ -51,4 +53,5 @@ export const UserProfile = () => {
                 </div>
             </section>
         ) 
+    }
 }

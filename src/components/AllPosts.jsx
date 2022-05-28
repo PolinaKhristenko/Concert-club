@@ -8,8 +8,11 @@ import { useGetPostsQuery } from '../services/userApi';
 export const AllPosts = () => {
     
     const { userId } = useParams();
-    const { currentData } = useGetPostsQuery(userId);
+    const { currentData, isFetching } = useGetPostsQuery(userId);
     let postInfos = currentData;
+
+
+    if (isFetching) return <div className='container'>Идёт загрузка...</div>
 
     // Страница со всеми постами. Экран 3
 

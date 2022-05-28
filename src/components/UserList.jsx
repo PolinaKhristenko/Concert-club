@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import {Link } from 'react-router-dom';
-import { UserProfile } from './UserProfile';
 
 import { useGetUsersQuery } from '../services/userApi';
 
 export const UserList = () => {
-    const { data } = useGetUsersQuery();
+    const { data, isFetching } = useGetUsersQuery();
     let fullNameData = data;
     const [users, setUsers] = useState([]);
     useEffect(() => { setUsers(fullNameData) }, [setUsers, fullNameData] ); 
     // Пришлось добавить из-за асинхронности useState
 
+    if (isFetching) return <div className='container'>Идёт загрузка...</div>
 
     // Список пользоваталей. Экран 1
 

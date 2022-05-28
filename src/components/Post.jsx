@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../App.css';
 import { useParams } from "react-router-dom";
+import Comment from './Comment';
 
-import { useGetCommentsQuery, useGetPostQuery, usePostCommentsQuery } from '../services/userApi';
+import { useGetCommentsQuery, useGetPostQuery } from '../services/userApi';
 
 export const Post = () => {
     const params = useParams();
     const postId = params.postId;
     
     // Посты
-    const { currentData } = useGetPostQuery(postId);
+    const { currentData, isFetching } = useGetPostQuery(postId);
     let postInfos = currentData;
 
     // Комментарии
     const { data } = useGetCommentsQuery(postId);
     let comments = data;
+
+    const [formActive, setFormActive] = useState(false); 
+
+    if (isFetching) return <div className='container'>Идёт загрузка...</div>
 
     // Страница с деталями поста и комментариями. Экран 4
 
@@ -22,6 +27,7 @@ export const Post = () => {
             <section className='post'>
                 <div className='container'>
                     <div className='post__infos'>
+                        <h3 className='post__title'>Пост</h3>
                         {postInfos?.map((post, index) => (
                             <div key={index} className='post__container'>
                                 <h1 className='post__title'>{post.title}</h1>
@@ -39,6 +45,9 @@ export const Post = () => {
                                     <p className='comment__body'>{comment.body}</p>
                                 </div>
                             ))}
+
+                            <button type='button' className='btn__black' onClick={() => setFormActive(true)}>Добавить комментарий</button>
+                            <Comment active={formActive} setActive={setFormActive} />
                         </div>
                     </div>
                 </div>

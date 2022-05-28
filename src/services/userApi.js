@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { Post } from '../components/Post';
 
 const userApiHeaders = {
     'Content-type': 'application/json; charset=UTF-8',
@@ -27,8 +28,12 @@ export const userApi = createApi({
         getComments: builder.query({
             query: (postId) => createRequest(`/comments?postId=${postId}`),
         }),
-        postComments: builder.query({
-            query: (postId) => createRequest(`/comments?postId=${postId}`),
+        postComments: builder.mutation ({
+            query: (body, postId) => ({
+                url: `/comments?postId=${postId}`,
+                method: 'POST',
+                body,
+            })
         }),
     })
 });
@@ -39,5 +44,5 @@ export const {
     useGetPostsQuery,
     useGetCommentsQuery,
     useGetPostQuery,
-    usePostCommentsQuery
+    usePostCommentsMutation
 } = userApi;
