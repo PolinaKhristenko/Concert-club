@@ -65,8 +65,8 @@ body {
 }
 
 
-/* Media */
 
+/* General Media */
 
 
 @media screen and (max-width: 1024px) { 
@@ -89,22 +89,13 @@ body {
   .container {
       max-width: 576px;
   }
+
 }
 
 @media screen and (max-width: 576px) {
   .container {
       max-width: 100%;
       padding: 0 20px;
-  }
-
-  .header__body {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .user__card {
-    width: auto;
   }
 
 }

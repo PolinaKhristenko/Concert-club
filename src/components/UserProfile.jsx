@@ -25,12 +25,19 @@ export const UserProfile = () => {
         return (
             <section className='profile'>
                 <div className='profile__body'>
-                    <div className='container'>
+    
                         <div className='profile__layout'>
-                            <div className='profile__row'><h2 className='profile__data title'>{`${userDetails.username}`}</h2></div>
-                            <div className='profile__row border-top'><p className='profile__data profile__contacts'>{`${userDetails.name}`}</p><p className='profile__data profile__contacts'>{`${userDetails.email}`}</p><p className='profile__data profile__contacts'>{`${userDetails.phone}`}</p><p className='profile__data profile__contacts'>{`${userDetails.website}`}</p><p className='profile__data profile__contacts'>{`${userDetails.company.name}, ${userDetails.company.bs}`}</p></div>
+                            <div className='profile__row-1 container'><h2 className='profile__data title'>{`${userDetails.username}`}</h2></div>
+                            <div className='border-top'></div>
+                            <div className='profile__row-2 container'><p className='profile__data profile__contacts'>{`${userDetails.name}`}</p>
+                                <a href={`mailto:${userDetails.email}`} className='profile__data profile__contacts'>{`${userDetails.email}`}</a>
+                                <a href={`tel:${userDetails.phone}`} className='profile__data profile__contacts'>{`${userDetails.phone}`}</a>
+                                <a href={`${userDetails.website}`} target='_blank' className='profile__data profile__contacts'>{`${userDetails.website}`}</a>
+                                <p className='profile__data profile__contacts'>{`${userDetails.company.name}`}</p>
+                                <p className='profile__data profile__contacts'>{`${userDetails.company.bs}`}</p>
+                            </div>
                         </div>
-                    </div>
+                
                 </div>
 
                 <div className='profile__body'>
