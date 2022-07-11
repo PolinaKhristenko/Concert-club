@@ -11,7 +11,7 @@
 <img width="593" alt="Screenshot 2022-07-07 at 20 47 24" src="https://user-images.githubusercontent.com/88159970/177837152-6e10c59c-8293-4ccc-8a85-41f3772cb7ba.png">
 
 
-## All posts:
+## All posts page:
 
 <img width="567" alt="Screenshot 2022-07-07 at 20 48 08" src="https://user-images.githubusercontent.com/88159970/177837326-04b2b12a-a452-4e0f-97d5-e8f0e594e290.png">
 
