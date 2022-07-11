@@ -1,4 +1,4 @@
-# React based website for a social media
+# React based website for a social media using Redux
 
 
 ## Main screen:
