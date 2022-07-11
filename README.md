@@ -1,4 +1,4 @@
-# Concert-club React based website
+# React based website for a social media
 
 
 ## Main screen:
